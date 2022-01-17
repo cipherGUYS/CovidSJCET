@@ -1,0 +1,29 @@
+body {
+    background-color: #47afe7;
+}
+
+.main-card {
+    border-radius: 30px;
+    margin-top: 100px;
+}
+
+.card-branch {
+    border-radius: 10px;
+    background-color: #96d4e9;
+    height: auto;
+    width: 200px;
+}
+
+.row {
+    margin-top: 70px;
+}
+
+.row-l {
+    margin-bottom: 50px;
+}
+
+.btn {
+    border-radius: 10px;
+    background-color: #96d4e9 !important;
+    color: black !important;
+}
