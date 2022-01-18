@@ -14,30 +14,47 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
+var yr = {
+  "year-1":"First",
+  "year-2":"Second",
+  "year-3":"Third",
+  "year-4":"Fourth"
+};
 var cscard = document.getElementById("cs-card");
 var adcard = document.getElementById("ad-card");
-var selector = document.getElementById("selector")
+var csCount = document.getElementById("cs-count");
+var adCount = document.getElementById("ad-count");
+
+var dropDown = document.getElementById("selector")
+var year1 = document.getElementById("year-1");
 var year2 = document.getElementById("year-2");
+var year3 = document.getElementById("year-3");
+var year4 = document.getElementById("year-4");
 function main() {
   get(child(ref(db), "/")).then((data) => {
     if (data.exists()) {
-      function getter2() {
-        selector.innerText="Second Year ";
-        var cs = document.getElementById("cs-count");
-        cs.innerHTML = data.child("Second/cs").val().count;
-        var ad = document.getElementById("ad-count");
-        ad.innerHTML = data.child("Second/ad").val().count;
+      function getter(y) {
+        console.log(y.id + " y.id");
+        var year = yr[y.id];
+        dropDown.innerText=`${year} Year`;
+        
+        csCount.innerHTML = data.child(`${year}/cs`).val().count;
+        
+        adCount.innerHTML = data.child(`${year}/ad`).val().count;
 
         function csname() {
-          cscard.innerHTML =`<p> ${data.child("Second/cs").val().names} </p>`;
+          csCount.innerHTML =`<p> ${data.child(`${year}/cs`).val().names} </p>`;
         }
         function adname(){
-          adcard.innerHTML = data.child("Second/ad").val().names;
+          adCount.innerHTML = data.child(`${year}/ad`).val().names;
         }
         cscard.addEventListener("click", csname);
         adcard.addEventListener("click", adname);
       }
-      year2.addEventListener("click",getter2);
+      year1.addEventListener("click",()=>{getter(year1);});
+      year2.addEventListener("click",()=>{getter(year2);});
+      year3.addEventListener("click",()=>{getter(year3);});
+      year4.addEventListener("click",()=>{getter(year4);});
     }
   })
 }
