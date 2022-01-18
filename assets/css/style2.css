@@ -12,7 +12,6 @@ body {
   height: auto;
   width: 200px;
   margin-top: 100px;
-  transition: transform .3s;
   transform: scale(1.0);
   box-shadow: 6px 6px 6px #8dabb6;
 
@@ -22,8 +21,7 @@ body {
   transform: scale(1.08);
   cursor: pointer;
   background-color: #3194db !important;
-  /* transform: scale(1.1);
-  box-shadow: 10px 10px 10px #5c6c72; */
+  box-shadow: 10px 10px 10px #5c6c72;
 }
 
 .btn {
@@ -32,7 +30,6 @@ body {
   /* color: rgb(0, 0, 0) !important; */
   box-shadow: 5px 5px 5px #8dabb6;
 }
-
 h5, h6 {
   color: white;
 }
