@@ -4,16 +4,14 @@ body {
 
 .main-card {
   border-radius: 30px;
-  margin-top: 100px;
 }
 
 .card-branch {
   border-radius: 10px;
-  background-color: #2587cf;
+  background-color: #2487ce;
   height: auto;
   width: 200px;
-
-  transition: transform .2s;
+  margin-top: 100px;
   transform: scale(1.0);
   box-shadow: 6px 6px 6px #8dabb6;
 
@@ -21,24 +19,47 @@ body {
 .card-branch:hover {
   transition: transform .3s;
   transform: scale(1.08);
-  /* transform: scale(1.1);*/
+  cursor: pointer;
+  background-color: #3194db !important;
   box-shadow: 10px 10px 10px #5c6c72;
-}
-
-.row {
-  margin-top: 70px;
-}
-
-.row-l {
-  margin-bottom: 50px;
 }
 
 .btn {
   border-radius: 10px;
-  background-color: #2587cf !important;
+  background-color: #2487ce !important;
   /* color: rgb(0, 0, 0) !important; */
   box-shadow: 5px 5px 5px #8dabb6;
 }
 h5, h6 {
   color: white;
+}
+
+#hero {
+  height: 100vh;
+}
+
+#selector {
+  margin-top: 50px;
+}
+
+#selector:hover {
+  background-color: #3194db !important;
+}
+
+.row-l {
+  margin-bottom: 50px; 
+}
+
+@media screen and (max-width: 993px) {
+  .card-branch {
+    margin-top: 50px;
+  }
+
+  #selector {
+    margin-top: 25px;
+  }
+
+  .row-l {
+    margin-bottom: 25px;
+  }
 }
