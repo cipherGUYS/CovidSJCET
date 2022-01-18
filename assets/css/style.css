@@ -651,3 +651,13 @@ section {
 .team .member:hover .social {
   opacity: 1;
 }
+
+.member-img {
+  transition: transform .7s;
+  transform: scale(1.0);
+}
+
+.member-img:hover {
+  transition: transform .7s;
+  transform: scale(1.08);
+}
