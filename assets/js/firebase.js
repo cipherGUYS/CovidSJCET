@@ -15,10 +15,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var yr = {
-  "year-1":"First",
-  "year-2":"Second",
-  "year-3":"Third",
-  "year-4":"Fourth"
+  "year-1": "First",
+  "year-2": "Second",
+  "year-3": "Third",
+  "year-4": "Fourth"
 };
 var cscard = document.getElementById("cs-card");
 var adcard = document.getElementById("ad-card");
@@ -39,69 +39,73 @@ function main() {
   get(child(ref(db), "/")).then((data) => {
     if (data.exists()) {
 
-      csCount.innerHTML = data.child("Total/cs").val().count
-      adCount.innerHTML = data.child("Total/ad").val().count
-      ceCount.innerHTML = data.child("Total/ce").val().count
-      ecCount.innerHTML = data.child("Total/ec").val().count
-      eiCount.innerHTML = data.child("Total/ei").val().count
-      eeCount.innerHTML = data.child("Total/ee").val().count
-      meCount.innerHTML = data.child("Total/me").val().count
+      csCount.innerHTML = data.child("Total/cs").val().count;
+      adCount.innerHTML = data.child("Total/ad").val().count;
+      ceCount.innerHTML = data.child("Total/ce").val().count;
+      ecCount.innerHTML = data.child("Total/ec").val().count;
+      eiCount.innerHTML = data.child("Total/ei").val().count;
+      eeCount.innerHTML = data.child("Total/ee").val().count;
+      meCount.innerHTML = data.child("Total/me").val().count;
       function getter(y) {
         console.log(y.id + " y.id");
         var year = yr[y.id];
-        dropDown.innerText=`${year} Year`;
-        
+        dropDown.innerText = `${year} Year`;
+
         csCount.innerHTML = data.child(`${year}/cs`).val().count;
-        
         adCount.innerHTML = data.child(`${year}/ad`).val().count;
+        ceCount.innerHTML = data.child(`${year}/ce`).val().count;
+        ecCount.innerHTML = data.child(`${year}/ec`).val().count;
+        eiCount.innerHTML = data.child(`${year}/ei`).val().count;
+        eeCount.innerHTML = data.child(`${year}/ee`).val().count;
+        meCount.innerHTML = data.child(`${year}/me`).val().count;
 
         function csname() {
-          csCount.innerHTML =`<p> ${data.child(`${year}/cs`).val().names} </p>`;
+          csCount.innerHTML = `<p> ${data.child(`${year}/cs`).val().names} </p>`;
         }
-        function adname(){
+        function adname() {
           adCount.innerHTML = data.child(`${year}/ad`).val().names;
         }
         cscard.addEventListener("click", csname);
         adcard.addEventListener("click", adname);
       }
-      year1.addEventListener("click",()=>{getter(year1);});
-      year2.addEventListener("click",()=>{getter(year2);});
-      year3.addEventListener("click",()=>{getter(year3);});
-      year4.addEventListener("click",()=>{getter(year4);});
+      year1.addEventListener("click", () => { getter(year1); });
+      year2.addEventListener("click", () => { getter(year2); });
+      year3.addEventListener("click", () => { getter(year3); });
+      year4.addEventListener("click", () => { getter(year4); });
     }
   })
 }
-function add(){
-  update(ref(db,"Second/"),{
+function add() {
+  update(ref(db, "Second/"), {
     cs: {
-      count:"26",
-      names:['allaney', 'hari', 'shalon', 'rahul', 'harikrishnan', 'aishu', 'ann Maria', 'amrutha', 'treesa', 'mubeena', 'manjusree', 'ryana', 'arun', 'george', 'pranav', 'Athul soman', 'akhil', 'Delna', 'Sree', '1. Sweety', 'Abhishek', 'Mathews', 'Nimitha', 'Naveen', 'Anandu', 'Kevin', 'Praise']
+      count: "26",
+      names: ['allaney', 'hari', 'shalon', 'rahul', 'harikrishnan', 'aishu', 'ann Maria', 'amrutha', 'treesa', 'mubeena', 'manjusree', 'ryana', 'arun', 'george', 'pranav', 'Athul soman', 'akhil', 'Delna', 'Sree', '1. Sweety', 'Abhishek', 'Mathews', 'Nimitha', 'Naveen', 'Anandu', 'Kevin', 'Praise']
     },
     me: {
-      count:"not received",
-      names:["waiting..",]
+      count: "not received",
+      names: ["waiting..",]
     },
     ad: {
-      count:"not received",
-      names:["waiting..",]
+      count: "not received",
+      names: ["waiting..",]
     },
     ce: {
-      count:"not received",
-      names:["waiting..",]
+      count: "not received",
+      names: ["waiting..",]
     },
     ec: {
-      count:"not received",
-      names:["waiting..",]
+      count: "not received",
+      names: ["waiting..",]
     },
     ee: {
-      count:"not received",
-      names:["waiting..",]
+      count: "not received",
+      names: ["waiting..",]
     },
     ei: {
-      count:"not received",
-      names:["waiting..",]
+      count: "not received",
+      names: ["waiting..",]
     }
-    
+
     /*update(ref(db,"Total/"),{
     cs: {
       count:"not received",
@@ -132,7 +136,7 @@ function add(){
       names:["waiting..",]
     }*/
   });
-  
+
 }
 
 main();
