@@ -14,8 +14,9 @@ body {
     width: 200px;
 }
 .card-branch:hover{
-    transform: scale(1.2);
-    box-shadow: 8px 8px 8px #86a2ac;
+    transform: scale(1.1);
+    box-shadow: 10px 10px 10px #5c6c72;
+    
 }
 .row {
     margin-top: 70px;
