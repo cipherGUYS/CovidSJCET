@@ -25,14 +25,6 @@ body {
   box-shadow: 10px 10px 10px #5c6c72; */
 }
 
-.row {
-  margin-top: 70px;
-}
-
-.row-l {
-  margin-bottom: 50px;
-}
-
 .btn {
   border-radius: 10px;
   background-color: #2587cf !important;
@@ -42,4 +34,10 @@ body {
 
 h5, h6 {
   color: white;
+}
+
+@media screen and (max-width: 993px) {
+  .card-branch {
+    margin-top: 50px;
+  }
 }
