@@ -12,11 +12,17 @@ body {
   background-color: #96d4e9;
   height: auto;
   width: 200px;
+
+  transition: transform .3s;
+  transform: scale(1.0);
   box-shadow: 6px 6px 6px #8dabb6;
+
 }
 .card-branch:hover {
-  transform: scale(1.1);
-  box-shadow: 10px 10px 10px #5c6c72;
+  transition: transform .3s;
+  transform: scale(1.08);
+  /* transform: scale(1.1);
+  box-shadow: 10px 10px 10px #5c6c72; */
 }
 
 .row {
