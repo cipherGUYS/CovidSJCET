@@ -14,21 +14,32 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
-var yr = {
-  "year-1":"First",
-  "year-2":"Second",
-  "year-3":"Third",
-  "year-4":"Fourth"
+const yr = {
+  "year-1": "First",
+  "year-2": "Second",
+  "year-3": "Third",
+  "year-4": "Fourth"
 };
+const brn_id = {
+  "cs-card":"cs",
+  "ad-card":"ad",
+  "ce-card":"ce",
+  "ee-card":"ee",
+  "ei-card":"ei",
+  "me-card":"me",
+  "ec-card":"ec"
+}
+const branches = ['cs','ad','ce','ee','ei','me','ec'];
+
+//initializing card elements
 var cscard = document.getElementById("cs-card");
 var adcard = document.getElementById("ad-card");
-var csCount = document.getElementById("cs-count");
-var adCount = document.getElementById("ad-count");
-var ceCount = document.getElementById("ce-count");
-var eeCount = document.getElementById("ee-count");
-var eiCount = document.getElementById("ei-count");
-var meCount = document.getElementById("me-count");
-var ecCount = document.getElementById("ec-count");
+var cecard = document.getElementById("ce-card");
+var eecard = document.getElementById("ee-card");
+var eicard = document.getElementById("ei-card");
+var mecard = document.getElementById("me-card");
+var eccard = document.getElementById("ec-card");
+
 
 var dropDown = document.getElementById("selector")
 var year1 = document.getElementById("year-1");
@@ -38,101 +49,50 @@ var year4 = document.getElementById("year-4");
 function main() {
   get(child(ref(db), "/")).then((data) => {
     if (data.exists()) {
-
-      csCount.innerHTML = data.child("Total/cs").val().count
-      adCount.innerHTML = data.child("Total/ad").val().count
-      ceCount.innerHTML = data.child("Total/ce").val().count
-      ecCount.innerHTML = data.child("Total/ec").val().count
-      eiCount.innerHTML = data.child("Total/ei").val().count
-      eeCount.innerHTML = data.child("Total/ee").val().count
-      meCount.innerHTML = data.child("Total/me").val().count
+      branches.forEach(branch => {
+        document.getElementById(`${branch}-count`).innerHTML = data.child(`Total/${branch}`).val().count;
+      });
+     
       function getter(y) {
+
         console.log(y.id + " y.id");
         var year = yr[y.id];
-        dropDown.innerText=`${year} Year`;
-        
-        csCount.innerHTML = data.child(`${year}/cs`).val().count;
-        
-        adCount.innerHTML = data.child(`${year}/ad`).val().count;
+        dropDown.innerText = `${year} Year`;
 
-        function csname() {
-          csCount.innerHTML =`<p> ${data.child(`${year}/cs`).val().names} </p>`;
+        branches.forEach(branch => {
+          document.getElementById(`${branch}-count`).classList.add("text-center");
+          document.getElementById(`${branch}-count`).innerHTML = data.child(`${year}/${branch}`).val().count;
+        });
+
+        function namePrint(t) {
+          var i =0;
+          var br = brn_id[t.id];
+          var s=new String();
+          data.child(`${year}/${br}`).val().names.forEach(element => {
+            i++;
+            s=s.concat(`${i}.${element}<br>`);
+          });
+          document.getElementById(`${br}-count`).classList.remove("text-center")
+          document.getElementById(`${br}-count`).innerHTML = `<p>${s}</p>`;
         }
-        function adname(){
-          adCount.innerHTML = data.child(`${year}/ad`).val().names;
-        }
-        cscard.addEventListener("click", csname);
-        adcard.addEventListener("click", adname);
+
+        //adding functions for cards
+        cscard.addEventListener("click", ()=>{namePrint(cscard); });
+        adcard.addEventListener("click", ()=>{namePrint(adcard); });
+        cecard.addEventListener("click", ()=>{namePrint(cecard); });
+        eecard.addEventListener("click", ()=>{namePrint(eecard); });
+        eicard.addEventListener("click", ()=>{namePrint(eicard); });
+        mecard.addEventListener("click", ()=>{namePrint(mecard); });
+        eccard.addEventListener("click", ()=>{namePrint(eccard); });
+        
       }
-      year1.addEventListener("click",()=>{getter(year1);});
-      year2.addEventListener("click",()=>{getter(year2);});
-      year3.addEventListener("click",()=>{getter(year3);});
-      year4.addEventListener("click",()=>{getter(year4);});
+      //adding funtions to dropdown
+      year1.addEventListener("click", () => { getter(year1); });
+      year2.addEventListener("click", () => { getter(year2); });
+      year3.addEventListener("click", () => { getter(year3); });
+      year4.addEventListener("click", () => { getter(year4); });
     }
   })
-}
-function add(){
-  update(ref(db,"Second/"),{
-    cs: {
-      count:"26",
-      names:['allaney', 'hari', 'shalon', 'rahul', 'harikrishnan', 'aishu', 'ann Maria', 'amrutha', 'treesa', 'mubeena', 'manjusree', 'ryana', 'arun', 'george', 'pranav', 'Athul soman', 'akhil', 'Delna', 'Sree', '1. Sweety', 'Abhishek', 'Mathews', 'Nimitha', 'Naveen', 'Anandu', 'Kevin', 'Praise']
-    },
-    me: {
-      count:"not received",
-      names:["waiting..",]
-    },
-    ad: {
-      count:"not received",
-      names:["waiting..",]
-    },
-    ce: {
-      count:"not received",
-      names:["waiting..",]
-    },
-    ec: {
-      count:"not received",
-      names:["waiting..",]
-    },
-    ee: {
-      count:"not received",
-      names:["waiting..",]
-    },
-    ei: {
-      count:"not received",
-      names:["waiting..",]
-    }
-    
-    /*update(ref(db,"Total/"),{
-    cs: {
-      count:"not received",
-      names:["waiting..",]
-    },
-    me: {
-      count:"not received",
-      names:["waiting..",]
-    },
-    ad: {
-      count:"not received",
-      names:["waiting..",]
-    },
-    ce: {
-      count:"not received",
-      names:["waiting..",]
-    },
-    ec: {
-      count:"not received",
-      names:["waiting..",]
-    },
-    ee: {
-      count:"not received",
-      names:["waiting..",]
-    },
-    ei: {
-      count:"not received",
-      names:["waiting..",]
-    }*/
-  });
-  
 }
 
 main();

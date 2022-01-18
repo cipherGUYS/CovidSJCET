@@ -12,8 +12,11 @@ body {
   background-color: #96d4e9;
   height: auto;
   width: 200px;
+
   transition: transform .3s;
   transform: scale(1.0);
+  box-shadow: 6px 6px 6px #8dabb6;
+
 }
 .card-branch:hover {
   transition: transform .3s;
@@ -21,6 +24,7 @@ body {
   /* transform: scale(1.1);
   box-shadow: 10px 10px 10px #5c6c72; */
 }
+
 .row {
   margin-top: 70px;
 }
@@ -33,4 +37,5 @@ body {
   border-radius: 10px;
   background-color: #96d4e9 !important;
   color: rgb(0, 0, 0) !important;
+  box-shadow: 5px 5px 5px #8dabb6;
 }
