@@ -1,0 +1,32 @@
+body {
+  background-color: white;
+}
+
+.main-card {
+  border-radius: 30px;
+  margin-top: 100px;
+}
+
+.card-branch {
+  border-radius: 10px;
+  background-color: #96d4e9;
+  height: auto;
+  width: 200px;
+}
+.card-branch:hover {
+  transform: scale(1.1);
+  box-shadow: 10px 10px 10px #5c6c72;
+}
+.row {
+  margin-top: 70px;
+}
+
+.row-l {
+  margin-bottom: 50px;
+}
+
+.btn {
+  border-radius: 10px;
+  background-color: #96d4e9 !important;
+  color: rgb(0, 0, 0) !important;
+}
