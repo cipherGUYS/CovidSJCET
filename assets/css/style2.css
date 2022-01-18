@@ -13,7 +13,7 @@ body {
   height: auto;
   width: 200px;
 
-  transition: transform .3s;
+  transition: transform .2s;
   transform: scale(1.0);
   box-shadow: 6px 6px 6px #8dabb6;
 
@@ -21,8 +21,8 @@ body {
 .card-branch:hover {
   transition: transform .3s;
   transform: scale(1.08);
-  /* transform: scale(1.1);
-  box-shadow: 10px 10px 10px #5c6c72; */
+  /* transform: scale(1.1);*/
+  box-shadow: 10px 10px 10px #5c6c72;
 }
 
 .row {
@@ -39,7 +39,6 @@ body {
   /* color: rgb(0, 0, 0) !important; */
   box-shadow: 5px 5px 5px #8dabb6;
 }
-
 h5, h6 {
   color: white;
 }
