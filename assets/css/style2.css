@@ -12,12 +12,13 @@ body {
   height: auto;
   width: 200px;
   margin-top: 100px;
+  transition: transform .5s;
   transform: scale(1.0);
   box-shadow: 6px 6px 6px #8dabb6;
 
 }
 .card-branch:hover {
-  transition: transform .3s;
+  transition: transform .5s;
   transform: scale(1.08);
   cursor: pointer;
   background-color: #3194db !important;
@@ -28,7 +29,7 @@ body {
   border-radius: 10px;
   background-color: #2487ce !important;
   /* color: rgb(0, 0, 0) !important; */
-  box-shadow: 5px 5px 5px #8dabb6;
+  /* box-shadow: 5px 5px 5px #8dabb6; */
 }
 h5, h6 {
   color: white;
