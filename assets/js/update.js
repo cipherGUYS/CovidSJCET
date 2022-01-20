@@ -43,29 +43,41 @@ var eccard = document.getElementById("branch-ec");
 
 var sub = document.getElementById("submit");
 
-var year ="";
-var branch="";
-function yearGet(t){
+var year = "";
+var branch = "";
+function yearGet(t) {
     year = yr[t.id];
     document.getElementById("year-selector").innerText = `${year} Year `;
-    
+
 }
-function branchGet(t){
+function branchGet(t) {
     branch = brn_id[t.id];
     document.getElementById("branch-selector").innerText = `${branch} `;
-   
+
 }
 
-function change(){
-    if( (year != "") && (branch != "") ){
+function change() {
+    if ((year != "") && (branch != "")) {
         var val = document.forms["Data"]["Count"].value;
-        update(ref(db,`${year}/${branch}`), {
-            count: val,
+        var tval = 0;
+        var oldval = 0;
+        get(child(ref(db), `${year}/${branch}`)).then((data) => {
+            oldval = parseInt(data.val().count);
+            get(child(ref(db), `Total/${branch}`)).then((data) => {
+                tval = parseInt(data.val().count);
+                tval = (tval - oldval) + parseInt(val);
+                update(ref(db, `Total/${branch}`), {
+                    count: tval,
+                }).then(() => {
+                    update(ref(db, `${year}/${branch}`), {
+                        count: val,
+                    }).then(() => {
+                        location.replace("../index.html");
+                    });
+                });
+            });
         });
-        document.getElementById("form").reset();
-        setTimeout(()=>{
-            location.replace("../index.html");
-        }, 3000);
+        
 
     }
 }
@@ -83,4 +95,4 @@ eicard.addEventListener("click", () => { branchGet(eicard); });
 mecard.addEventListener("click", () => { branchGet(mecard); });
 eccard.addEventListener("click", () => { branchGet(eccard); });
 
-sub.addEventListener("click",change);
+sub.addEventListener("click", change);
