@@ -24,7 +24,7 @@ function auth() {
     get(child(ref(db), "auth/")).then((data) => {
 
         if ((userName == data.val().userName) && (passWord == data.val().Password)) {
-            location.replace("../admin.html");
+            location.replace("admin.html");
 
         }
         else {
