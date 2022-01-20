@@ -66,7 +66,6 @@ function main() {
                 var qu = 0;
                 branches.forEach(branch => {
                     po = po + parseInt(data.child(`Total/${branch}`).val().count);
-                    console.log(po);
                 });
                 pr = Math.ceil( po*0.5*3 + po);
                 sy = Math.ceil(pr*0.25 + 3);
