@@ -62,7 +62,9 @@ function change(){
         update(ref(db,`${year}/${branch}`), {
             count: val,
         });
-        location.replace("../index.html");
+        document.getElementById("form").reset();
+        //document.getElementById("form").submit();
+
     }
 }
 //adding funtions to dropdown
