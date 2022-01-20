@@ -63,7 +63,9 @@ function change(){
             count: val,
         });
         document.getElementById("form").reset();
-        //document.getElementById("form").submit();
+        setTimeout(()=>{
+            location.replace("../index.html");
+        }, 3000);
 
     }
 }
