@@ -75,3 +75,29 @@ h5, h6 {
     justify-content: center;
   }
 }
+
+#year-selector {
+  /* height: 150px !important; */
+  margin: 20px !important;
+  background-color: white !important;
+  color: black;
+}
+
+#branch-selector {
+  margin: 20px !important;
+  background-color: white !important;
+  color: black;
+}
+
+.card-admin-selection {
+  width: 400px !important;
+}
+
+#count-box {
+  height: 50px;
+  border-radius: 10px;
+}
+
+.nb-text {
+  color: white;
+}
