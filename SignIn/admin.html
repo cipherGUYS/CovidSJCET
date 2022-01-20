@@ -59,8 +59,8 @@
 
     <section id="updates" class="updates">
         <div class="container">
-            <form id="form" name="Data" >
-                <div class="card main-card">
+            <form id="form" name="Data">
+                <div id="card-admin-main" class="card main-card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-5"></div>
@@ -77,13 +77,13 @@
                             </div>
                             <div class="col-lg-1"></div>
                             <div class="col-lg-3 d-flex justify-content-center">
-                                <div id="ce-card" class="card card-branch">
+                                <div id="ce-card" class="card card-branch card-admin-selection">
                                     <div class="btn-group">
                                         <button id="year-selector" class="btn btn-secondary btn-lg dropdown-toggle"
                                             type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Select Year
                                         </button>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu dropdown-menu-end">
                                             <li><a id="year-1" class="dropdown-item text-center">Year 1</a></li>
                                             <li><a id="year-2" class="dropdown-item text-center">Year 2</a></li>
                                             <li><a id="year-3" class="dropdown-item text-center">Year 3</a></li>
@@ -96,7 +96,7 @@
                                             type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Select Branch
                                         </button>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu dropdown-menu-end">
                                             <li><a id="branch-cs" class="dropdown-item text-center">cs</a></li>
                                             <li><a id="branch-ad" class="dropdown-item text-center">ad</a></li>
                                             <li><a id="branch-ce" class="dropdown-item text-center">ce</a></li>
@@ -107,27 +107,36 @@
                                         </ul>
                                     </div>
                                     <div class="card-body">
-                                        <input type="number" name="Count" class="form-control"
-                                            placeholder="Enter Count">
+                                        <input type="number" name="Count" class="form-control text-center count-val"
+                                            placeholder="Enter Count" id="count-box">
                                     </div>
+                                    <p class="text-center mt-3 mb-4 nb-text">Hit the submit buttom to update!!</p>
                                 </div>
                             </div>
 
                         </div>
-                        <div class="row row-l"></div>
-                        <div id="submit" type="button" class="sbt-btn">
-                            <div class="svg-wrapper-1">
-                                <div class="svg-wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                        <path fill="none" d="M0 0h24v24H0z"></path>
-                                        <path fill="currentColor"
-                                            d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
-                                        </path>
-                                    </svg>
+
+                        <div class="row">
+                            <div class="col-lg-12 d-flex justify-content-center mt-5">
+                                <div>
+                                    <div id="submit" type="button" class="sbt-btn">
+                                        <div class="svg-wrapper-1">
+                                            <div class="svg-wrapper">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                                    height="24">
+                                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                                    <path fill="currentColor"
+                                                        d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <span>Submit</span>
+                                    </div>
                                 </div>
                             </div>
-                            <span>Submit</span>
                         </div>
+
                     </div>
                 </div>
             </form>
