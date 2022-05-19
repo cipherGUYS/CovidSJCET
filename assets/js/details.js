@@ -81,6 +81,16 @@ function main() {
             function getter(y) {
 
                 console.log(y.id + " y.id");
+                if(y.id == "year-4") {
+                    document.getElementById("ifyouknowyouknow_1").classList.remove("d-none")   
+                }
+                else if(y.id == "year-1") {
+                    document.getElementById("ifyouknowyouknow_2").classList.remove("d-none")   
+                }
+                else {
+                    document.getElementById("ifyouknowyouknow_1").classList.add("d-none")
+                    document.getElementById("ifyouknowyouknow_2").classList.add("d-none")
+                }
                 var year = yr[y.id];
                 dropDown.innerText = `${year} Year`;
 
